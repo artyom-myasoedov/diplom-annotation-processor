@@ -1,0 +1,3 @@
+ru.vsu.cs.processor.ScheduledAnnotationProcessor
+ru.vsu.cs.processor.StripedLockAnnotationProcessor
+ru.vsu.cs.processor.CrossSemaphoreAnnotationProcessor

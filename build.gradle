@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group 'ru.cs.vsu'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'lcl'
+        url = new URL("file:///Users/ruaaaxs/.m2/repository")
+    }
+}
+
+dependencies {
+    implementation 'org.apache.logging.log4j:log4j-api:2.6.1'
+    implementation 'org.apache.logging.log4j:log4j-core:2.6.1'
+    implementation 'com.google.auto.service:auto-service:1.0.1'
+    implementation 'com.squareup:javapoet:1.13.0'
+    implementation 'ru.vsu.cs:diplom-core:1.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'ru.vsu.cs'
+            artifactId = 'diplom-annotation-processor'
+            version = '1.0'
+
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = new URL("file:///Users/ruaaaxs/.m2/repository")
+            name = 'lcl'
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
